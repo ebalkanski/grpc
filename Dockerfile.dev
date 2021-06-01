@@ -7,6 +7,6 @@ ADD . /go/src/github.com/ebalkanski/grpc/
 RUN cd /go/src/github.com/ebalkanski/grpc/ && go install github.com/ebalkanski/grpc/cmd/server/...
 
 WORKDIR /go/src/github.com/ebalkanski/grpc/
-EXPOSE 8080
+EXPOSE 8081
 
 ENTRYPOINT ["sh", "-c", "/go/bin/watcher -run github.com/ebalkanski/grpc/cmd/server -watch github.com/ebalkanski/grpc"]
