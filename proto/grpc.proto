@@ -12,7 +12,8 @@ service Users {
 }
 
 message User {
-  string name = 1;
+  int32 id = 1;
+  string name = 2;
 }
 
 message GetUsersRequest {}
@@ -22,7 +23,9 @@ message GetUsersResponse {
 }
 
 message CreateUserRequest {
-  User user = 1;
+  string name = 1;
 }
 
-message CreateUserResponse {}
+message CreateUserResponse {
+  User user = 1;
+}

@@ -19,12 +19,15 @@ func main() {
 
 	client := pb.NewUsersClient(conn)
 
-	req := &pb.CreateUserRequest{User: &pb.User{
-		Name: "John",
-	}}
-	_, err = client.CreateUser(context.Background(), req)
-	if err != nil {
-		fmt.Printf("error creating user: %v\n", err)
+	names := []string{"John", "Bob", "Bill", "John"}
+	for _, name := range names {
+		req := &pb.CreateUserRequest{
+			Name: name,
+		}
+		_, err = client.CreateUser(context.Background(), req)
+		if err != nil {
+			fmt.Printf("error creating user: %v\n", err)
+		}
 	}
 
 	gResp, err := client.GetUsers(context.Background(), &pb.GetUsersRequest{})
