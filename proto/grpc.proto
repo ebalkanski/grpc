@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option go_package = "github.com/ebalkanski/grpc/proto/users";
+
+package users;
+
+service Users {
+  // GetUsers returns a list of users.
+  rpc GetUsers(GetUsersRequest) returns (GetUsersResponse) {}
+  // CreateUser creates a user.
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
+}
+
+message User {
+  string name = 1;
+}
+
+message GetUsersRequest {}
+
+message GetUsersResponse {
+  repeated User users = 1;
+}
+
+message CreateUserRequest {
+  User user = 1;
+}
+
+message CreateUserResponse {}

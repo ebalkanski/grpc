@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  grpc:
+    container_name: grpc
+    build:
+      context: $GOPATH/src/github.com/ebalkanski/grpc
+      dockerfile: Dockerfile.dev
+    volumes:
+      - "$GOPATH/src/github.com/ebalkanski/grpc:/go/src/github.com/ebalkanski/grpc"
+    ports:
+      - "8081:8081"
