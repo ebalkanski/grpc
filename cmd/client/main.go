@@ -36,6 +36,6 @@ func main() {
 	}
 
 	for _, user := range gResp.GetUsers() {
-		fmt.Printf("user = %#v\n", user)
+		fmt.Printf("user = %#v\n", user.Name)
 	}
 }
